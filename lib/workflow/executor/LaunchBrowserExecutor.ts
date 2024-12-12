@@ -9,15 +9,16 @@ export async function LaunchBrowserExecutor(
 ):Promise<boolean> {
     try {
         const websiteUrl = environment.getInput("Website Url");
-        console.log("@@WEBSITE URL", websiteUrl);
         const browser = await puppeteer.launch({
-            headless: false, // for testing 
-        })
-        await waitFor(3000);
-        await browser.close();
+            headless: true, // for testing 
+        });
+        environment.setBrowser(browser);
+        const page = await browser.newPage();
+        await page.goto(websiteUrl);
+        environment.setPage(page);
         return true;
-    } catch (error) {
-        console.error(error)
+    } catch (error: any) {
+        environment.log.error(error.message);
         return false;
     }
 }
