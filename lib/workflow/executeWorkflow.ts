@@ -15,7 +15,7 @@ import { Edge } from "@xyflow/react";
 import { LogCollector } from "@/types/log";
 import { createLogCollector } from "../log";
 
-export async function ExecuteWorkflow(executionId: string) {
+export async function ExecuteWorkflow(executionId: string, nextRunAt?: Date) {
     const execution = await prisma.workflowExecution.findUnique({
         where: {id: executionId},
         include: {workflow: true, phases: true},
@@ -29,7 +29,7 @@ export async function ExecuteWorkflow(executionId: string) {
 
     const environment: Environment = {phases: {}};
 
-    await initializeWorkflowExecution(executionId, execution.workflowId)
+    await initializeWorkflowExecution(executionId, execution.workflowId, nextRunAt)
     await initializePhaseStatuses(execution);
 
     let creditsConsumed = 0;
@@ -62,7 +62,8 @@ export async function ExecuteWorkflow(executionId: string) {
 
 async function initializeWorkflowExecution(
     executionId: string, 
-    workflowId: string
+    workflowId: string,
+    nextRunAt?: Date
 ) {
     await prisma.workflowExecution.update({
         where: {id: executionId},
@@ -80,6 +81,7 @@ async function initializeWorkflowExecution(
             lastRunAt: new Date(),
             lastRunStatus: WorkflowExecutionStatus.RUNNING,
             lastRunId: executionId,
+            ...(nextRunAt && {nextRunAt}),
         },
     });
 }
@@ -209,6 +211,7 @@ async function executePhase(
 ): Promise<boolean> {
     const runFn = ExecutorRegistry[node.data.type];
     if (!runFn) {
+        logCollector.error(`not found executor for ${node.data.type}`);
         return false;
     }
 
