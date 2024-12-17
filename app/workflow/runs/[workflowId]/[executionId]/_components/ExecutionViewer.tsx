@@ -51,7 +51,7 @@ function ExecutionViewer({
   });
 
   const phaseDetails = useQuery({
-    queryKey: ["phaseDetails", selectedPhase],
+    queryKey: ["phaseDetails", selectedPhase, query.data?.status],
     enabled: selectedPhase !== null,
     queryFn: () => GetWorkflowPhaseDetails(selectedPhase!)
   });
@@ -88,7 +88,6 @@ function ExecutionViewer({
         <aside className="w-[440px] min-w-[440px] max-w-[440px] border-r-2
             border-separate flex flex-grow flex-col overflow-hidden">
             <div className="py-4 px-2">
-                {/* Status label */}
                 <ExecutionLabel 
                     icon={CircleDashedIcon} 
                     label="Status" 
