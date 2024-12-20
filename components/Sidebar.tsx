@@ -13,25 +13,25 @@ import UserAvailableCreditsBadge from './UserAvailableCreditsBadge';
 
 const routes = [
   {
-    href:"/",
+    href: "",
     label: "Home",
     icon: HomeIcon,
   },
 
   {
-    href:"workflows",
+    href: "workflows",
     label: "workflows",
     icon: Layers2Icon,
   },
 
   {
-    href:"credentials",
+    href: "credentials",
     label: "Credentials",
     icon: ShieldCheckIcon,
   },
 
   {
-    href:"billing",
+    href: "billing",
     label: "Billing",
     icon: CoinsIcon,
   },
@@ -59,12 +59,14 @@ function DesktopSidebar() {
       </div>
       <div className="flex flex-col p-2">
         {routes.map(route => (
-          <Link key={route.href} href={route.href} 
-          className={buttonVariants({
-            variant: activeRoute.href === route.href 
-            ? "sidebarActiveItem" 
-            : "sidebarItem",
-          })}
+          <Link 
+            key={route.href} 
+            href={`/${route.href}`} 
+            className={buttonVariants({
+              variant: activeRoute.href === route.href 
+              ? "sidebarActiveItem" 
+              : "sidebarItem",
+            })}
           >
             <route.icon size={20} />
             {route.label}
@@ -98,19 +100,21 @@ export function MobileSidebar() {
               <Logo />
               <UserAvailableCreditsBadge />
               <div className="flex flex-col gap-1">
-              {routes.map(route => (
-          <Link key={route.href} href={route.href} 
-          className={buttonVariants({
-            variant: activeRoute.href === route.href 
-            ? "sidebarActiveItem" 
-            : "sidebarItem",
-          })}
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            <route.icon size={20} />
-            {route.label}
-          </Link>
-        ))}
+                {routes.map(route => (
+                  <Link 
+                    key={route.href} 
+                    href={`/${route.href}`} 
+                    className={buttonVariants({
+                      variant: activeRoute.href === route.href 
+                        ? "sidebarActiveItem" 
+                        : "sidebarItem",
+                    })}
+                    onClick={() => setOpen((prev) => !prev)}
+                  >
+                    <route.icon size={20} />
+                    {route.label}
+                  </Link>
+                ))}
               </div>
           </SheetContent>
         </Sheet>
