@@ -1,0 +1,119 @@
+{
+    "id": "cs_test_a1Qw960WeZchxOSxZIJmBJfZ7puDZxwVgzr3DctbcTla9NZMEEVWzCAw2L",
+    "object": "checkout.session",
+    "adaptive_pricing": {
+        "enabled": false
+    },
+    "after_expiration": null,
+    "allow_promotion_codes": null,
+    "amount_subtotal": 999,
+    "amount_total": 999,
+    "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "status": null
+    },
+    "billing_address_collection": null,
+    "cancel_url": "http://localhost:3000/billing",
+    "client_reference_id": null,
+    "client_secret": null,
+    "consent": null,
+    "consent_collection": null,
+    "created": 1734764668,
+    "currency": "usd",
+    "currency_conversion": null,
+    "custom_fields": [],
+    "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+    },
+    "customer": "cus_RRFF6950TQk2zV",
+    "customer_creation": "if_required",
+    "customer_details": {
+        "address": {
+            "city": null,
+            "country": "RU",
+            "line1": null,
+            "line2": null,
+            "postal_code": null,
+            "state": null
+        },
+        "email": "codewithkliton@gmail.com",
+        "name": "Kliton Bare",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+    },
+    "customer_email": null,
+    "expires_at": 1734851068,
+    "invoice": "in_1QYMkdDFSI9WgNDHI4ZX0Vnz",
+    "invoice_creation": {
+        "enabled": true,
+        "invoice_data": {
+            "account_tax_ids": null,
+            "custom_fields": null,
+            "description": null,
+            "footer": null,
+            "issuer": {
+                "type": "self"
+            },
+            "metadata": {},
+            "rendering_options": null
+        }
+    },
+    "livemode": false,
+    "locale": null,
+    "metadata": {
+        "userId": "user_2pT7H4DgKcG1y4vmaKu556ExNht",
+        "packId": "SMALL"
+    },
+    "mode": "payment",
+    "payment_intent": "pi_3QYMkbDFSI9WgNDH0OeA3ZjB",
+    "payment_link": null,
+    "payment_method_collection": "if_required",
+    "payment_method_configuration_details": {
+        "id": "pmc_1QYJjRDFSI9WgNDH9oLFWs5F",
+        "parent": null
+    },
+    "payment_method_options": {
+        "card": {
+            "request_three_d_secure": "automatic"
+        }
+    },
+    "payment_method_types": [
+        "card",
+        "link",
+        "cashapp",
+        "amazon_pay"
+    ],
+    "payment_status": "paid",
+    "phone_number_collection": {
+        "enabled": false
+    },
+    "recovered_from": null,
+    "saved_payment_method_options": {
+        "allow_redisplay_filters": [
+            "always"
+        ],
+        "payment_method_remove": null,
+        "payment_method_save": null
+    },
+    "setup_intent": null,
+    "shipping_address_collection": null,
+    "shipping_cost": null,
+    "shipping_details": null,
+    "shipping_options": [],
+    "status": "complete",
+    "submit_type": null,
+    "subscription": null,
+    "success_url": "http://localhost:3000/billing",
+    "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+    },
+    "ui_mode": "hosted",
+    "url": null
+}
