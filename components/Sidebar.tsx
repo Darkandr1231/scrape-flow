@@ -20,7 +20,7 @@ const routes = [
 
   {
     href: "workflows",
-    label: "workflows",
+    label: "Workflows",
     icon: Layers2Icon,
   },
 
